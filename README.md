@@ -9,7 +9,7 @@
 [![Languages](https://img.shields.io/badge/Languages-33-orange.svg)](#-multilingual-support)
 [![Live Demo](https://img.shields.io/badge/🌐%20Live%20Demo-www.rasimtemur.com-389fb6.svg)](https://www.rasimtemur.com/vetin/planestress/)
 
-> Developed by **Assoc. Prof. Rasim Temür** · Istanbul University-Cerrahpaşa, Department of Civil Engineering  
+> Developed by **Assoc. Prof. Rasim Temür** · İstanbul University-Cerrahpaşa, Department of Civil Engineering  
 > Part of the **Vetin** initiative for the digitisation of academic instruction tools.
 
 ---
@@ -173,7 +173,7 @@ planestress/
 ├── mobile.css              # Mobile viewport layout
 │
 ├── logo.svg                # Application logotype
-├── IUC.svg                 # Istanbul University-Cerrahpaşa logo
+├── IUC.svg                 # İstanbul University-Cerrahpaşa logo
 ├── icon-192.png            # PWA icon (192 × 192 px)
 └── icon-512.png            # PWA icon (512 × 512 px)
 ```
@@ -262,7 +262,7 @@ Full license terms are available in the [LICENSE](LICENSE) file.
 
 **Assoc. Prof. Rasim Temür**  
 Department of Civil Engineering  
-Istanbul University-Cerrahpaşa  
+İstanbul University-Cerrahpaşa  
 🌐 [rasimtemur.com](https://www.rasimtemur.com)
 
 ---
@@ -277,5 +277,5 @@ Vetin is a collection of open-source, browser-based computational tools develope
   <i>Developed in support of engineering education.</i><br>
   <a href="https://github.com/rasimtemur/vetin-planestress">GitHub</a> ·
   <a href="https://opensource.org/licenses/MIT">MIT License</a> ·
-  <a href="https://www.iuc.edu.tr">Istanbul University-Cerrahpaşa</a>
+  <a href="https://www.iuc.edu.tr">İstanbul University-Cerrahpaşa</a>
 </p>
