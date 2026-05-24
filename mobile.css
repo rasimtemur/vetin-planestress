@@ -1,0 +1,405 @@
+/* Mobile Layout CSS */
+
+#mobile-container {
+    display: none;
+    flex-direction: column;
+    /* Use dvh for mobile browsers */
+    height: 100vh; 
+    height: 100dvh;
+    background-color: var(--fluent-background-fill-solid, #F3F3F3);
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 9999;
+}
+
+body.mobile-view #mobile-container {
+    display: flex;
+}
+
+body.mobile-view #left-panel,
+body.mobile-view #center-panel,
+body.mobile-view #right-panel {
+    display: none !important;
+}
+
+/* Mobile Header */
+.mobile-header {
+    height: 50px;
+    display: flex;
+    align-items: center;
+    padding: 0 15px;
+    background: white;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    flex-shrink: 0;
+    justify-content: space-between;
+    border-bottom: 1px solid #eee;
+}
+
+/* Mobile Content Area */
+.mobile-content {
+    flex: 1;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Tabs */
+.mobile-tabs {
+    display: flex;
+    justify-content: space-around;
+    background: white;
+    box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+    z-index: 10000;
+    flex-shrink: 0;
+    height: 60px;
+    padding-bottom: env(safe-area-inset-bottom);
+    position: relative;
+    width: 100%;
+}
+
+.tab-button {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: none;
+    font-size: 10px;
+    color: #666;
+    gap: 4px;
+    cursor: pointer;
+    padding: 5px 0;
+}
+
+.tab-button.active {
+    color: var(--fluent-accent-fill-rest, #1C3E68);
+    font-weight: bold;
+}
+
+.tab-button svg {
+    width: 24px;
+    height: 24px;
+    fill: currentColor;
+}
+
+/* Tab Panes */
+.tab-pane {
+    display: none;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px;
+    overflow: hidden; /* Prevent scroll by default for single-screen tabs */
+}
+
+/* Specific scrolling for taller tabs */
+/* With separate tabs, we can likely fit in screen, use hidden to avoid double scrollbars if flex works */
+#tab-principal,
+#tab-shear,
+#tab-transformed {
+    overflow-y: hidden; 
+}
+
+.tab-pane.active {
+    display: flex;
+}
+
+/* Slot Styling */
+.content-slot, .content-slot-1, .content-slot-2 {
+    flex: 0 0 auto; /* Natural height */
+    margin-bottom: 10px;
+}
+
+.canvas-slot, .canvas-slot-1, .canvas-slot-2 {
+    flex: 1 1 auto; /* Take remaining space */
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-height: 0; /* Important for grid/flex nesting */
+    border: 1px solid #eee;
+    border-radius: 8px;
+    background: #fff;
+    overflow: hidden;
+}
+
+/* Override fixed heights for principal slots to allow them to be flexible or fixed as needed */
+#tab-principal .canvas-slot-1,
+#tab-shear .canvas-slot-2 {
+    height: 100%; /* Force fill */
+    flex: 1; 
+    margin-bottom: 0;
+}
+
+/* Elements moved to mobile */
+body.mobile-view .in-mobile-view {
+    width: 100% !important;
+    height: 100% !important;
+    margin: 0 !important;
+    box-sizing: border-box;
+    box-shadow: none !important;
+    border: none !important;
+    display: flex !important;
+    flex-direction: column;
+}
+
+/* Specific fix for inputs section */
+body.mobile-view .panel-section.in-mobile-view {
+    height: auto !important;
+    background: transparent;
+    padding: 0;
+    border: none;
+}
+
+/* Reset Canvas styling in mobile */
+body.mobile-view canvas {
+    width: 100% !important;
+    height: 100% !important;
+    display: block;
+    object-fit: contain; /* Ensure it doesn't stretch weirdly */
+}
+
+/* Element Box specific */
+body.mobile-view .element-box {
+    padding: 0;
+    position: relative;
+}
+
+/* Hide desktop titles in element boxes and use mobile styling or just hide? 
+   Existing titles are inside element-box. We want them visible but maybe small.
+*/
+body.mobile-view .element-box .panel-title {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    z-index: 10;
+    background: rgba(255,255,255,0.8);
+    padding: 2px 5px;
+    border-radius: 4px;
+    font-size: 11px;
+    pointer-events: none;
+}
+/* Ensure Controls are visible */
+body.mobile-view .element-controls {
+    top: 5px !important;
+    right: 5px !important;
+    z-index: 20;
+}
+/* Mohr Specifics */
+body.mobile-view #mohr-content-wrapper {
+    position: relative;
+    /* Ensure flex grow so it fills the slot */
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+body.mobile-view #mohr-content-wrapper .panel-title {
+    /* Show title but position absolutely top-left like others */
+    display: block !important;
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    z-index: 10;
+    background: rgba(255,255,255,0.8);
+    padding: 2px 5px;
+    border-radius: 4px;
+    font-size: 11px;
+    pointer-events: none;
+    margin: 0;
+    border: none;
+}
+body.mobile-view #mohr-content-wrapper .mohr-all-controls {
+    top: 5px;
+    right: 5px;
+    transform: scale(0.85); /* Make controls smaller but readable */
+    transform-origin: top right;
+}
+
+/* Fix Canvas Height in slots */
+body.mobile-view .element-box,
+body.mobile-view #mohr-content-wrapper {
+    width: 100% !important;
+    height: 100% !important;
+    flex: 1;
+}
+
+/* Ensure canvas fills its parent - Use absolute positioning to break flex flow dependency */
+body.mobile-view .element-box canvas,
+body.mobile-view #mohr-content-wrapper canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100% !important;
+    height: 100% !important;
+}
+
+/* Ensure step info doesn't block title */
+body.mobile-view #stepInfo {
+    top: 40px !important; 
+}
+/* Dark Mode fixes */
+body.dark-mode .canvas-slot,
+body.dark-mode .canvas-slot-1, 
+body.dark-mode .canvas-slot-2,
+body.dark-mode #mohr-content-wrapper,
+body.dark-mode #mohr-content-wrapper canvas {
+    background-color: #101419 !important;
+    border-color: #333;
+}
+
+/* Fix panel titles in dark mode */
+body.dark-mode.mobile-view .element-box .panel-title,
+body.dark-mode.mobile-view #mohr-content-wrapper .panel-title {
+    background: rgba(26, 31, 46, 0.9) !important; /* Dark background matching container */
+    color: #fff !important; /* White text */
+}
+
+/* Fix mobile header and tabs background in dark mode */
+body.dark-mode .mobile-header,
+body.dark-mode .mobile-tabs {
+    background-color: #101419 !important; /* Explicit dark background */
+    border-color: #333 !important;
+    color: #fff;
+}
+
+body.dark-mode .tab-button {
+    color: #888;
+}
+
+/* Language Switcher in Mobile Header */
+.mobile-lang-switcher button {
+    background: none;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 2px 5px;
+    font-size: 11px;
+    cursor: pointer;
+    color: #666;
+}
+
+.mobile-lang-switcher button.active {
+    background: var(--fluent-accent-fill-rest, #1C3E68);
+    color: white;
+    border-color: var(--fluent-accent-fill-rest, #1C3E68);
+}
+
+/* Dark Mode for Mobile Lang Switcher */
+body.dark-mode .mobile-lang-switcher button {
+    border-color: #555;
+    color: #aaa;
+}
+
+body.dark-mode .mobile-lang-switcher button.active {
+    background: #4da6ff;
+    color: #000;
+    border-color: #4da6ff;
+}
+
+/* Mobile Dropdown Styling */
+#languageDropdownMobile {
+    position: fixed; /* Fixed positioning to escape header clipping */
+    top: 55px; /* Below the 50px header + gap */
+    right: 15px; /* Align with header padding */
+    left: auto !important; /* Override potential desktop defaults */
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    display: none; /* Toggled via JS */
+    flex-direction: column;
+    z-index: 100000; /* Very high z-index */
+    max-height: 60vh; /* Allow it to be taller */
+    overflow-y: auto;
+    min-width: 120px;
+}
+
+#languageDropdownMobile.show {
+    display: flex;
+}
+
+#languageDropdownMobile button {
+    border: none;
+    border-bottom: 1px solid #eee;
+    background: none !important; /* Force transparent initially */
+    color: #333;
+    padding: 10px 15px; /* Bigger touch target */
+    text-align: left;
+    border-radius: 0;
+    width: 100%;
+    font-size: 14px; /* Readable on mobile */
+}
+
+#languageDropdownMobile button:last-child {
+    border-bottom: none;
+}
+
+#languageDropdownMobile button:active {
+    background-color: #f0f0f0 !important;
+}
+
+/* Dark Mode Dropdown */
+body.dark-mode #languageDropdownMobile {
+    background: #101419;
+    border-color: #333;
+}
+body.dark-mode #languageDropdownMobile button {
+    color: #eee;
+    border-color: #333;
+}
+body.dark-mode #languageDropdownMobile button:active {
+    background-color: #2A3040 !important;
+}
+/* Blueprint Mode Mobile Fixes */
+body.blueprint-mode .canvas-slot,
+body.blueprint-mode .canvas-slot-1, 
+body.blueprint-mode .canvas-slot-2,
+body.blueprint-mode #mohr-content-wrapper,
+body.blueprint-mode #mohr-content-wrapper canvas {
+    background-color: #112244 !important;
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+body.blueprint-mode.mobile-view .element-box .panel-title,
+body.blueprint-mode.mobile-view #mohr-content-wrapper .panel-title {
+    background: rgba(17, 34, 68, 0.9) !important;
+    color: #fff !important;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+body.blueprint-mode .mobile-header,
+body.blueprint-mode .mobile-tabs {
+    background-color: #05445E !important;
+    border-color: rgba(255, 255, 255, 0.2) !important;
+    color: #fff;
+}
+
+body.blueprint-mode .tab-button {
+    color: #BDD7EE;
+}
+
+body.blueprint-mode .tab-button.active {
+    color: #FFFFFF;
+}
+
+body.blueprint-mode #languageDropdownMobile {
+    background: #112244;
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+body.blueprint-mode #languageDropdownMobile button {
+    color: #fff;
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+body.blueprint-mode #languageDropdownMobile button:active {
+    background-color: #1a3a6b !important;
+}
+
+body.blueprint-mode #mobile-container {
+    background-color: #05445E;
+}

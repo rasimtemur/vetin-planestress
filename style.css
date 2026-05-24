@@ -1,0 +1,2650 @@
+/* --- STYLE.CSS : FLUENT DESIGN --- */
+
+/* 1. DEĞİŞKENLER */
+.footer-right {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+:root {
+    --fluent-accent-fill-rest: #1C3E68;
+    --fluent-accent-fill-hover: #2A528A;
+    --fluent-accent-fill-pressed: #142C4C;
+    --fluent-neutral-fill-rest: #F3F3F3;
+    --fluent-neutral-fill-hover: #EBEBEB;
+    --fluent-neutral-foreground-rest: #201F1E;
+    --fluent-neutral-foreground-hint: #605E5C;
+    --fluent-layer-fill-default: #FFFFFF;
+    --fluent-stroke-color-default: #E1E1E1;
+    --fluent-background-fill-solid: #F3F3F3;
+    --result-bg: #F9F9F9;
+    --result-border: #EBEBEB;
+    --fluent-shadow-depth-4: 0 2px 4px rgba(0, 0, 0, 0.06);
+    --fluent-shadow-depth-16: 0 8px 16px rgba(0, 0, 0, 0.1);
+    --fluent-border-radius: 8px;
+}
+
+/* === DARK MODE STYLES === */
+body.dark-mode {
+    --fluent-accent-fill-rest: #A1A1A1;
+    --fluent-accent-fill-hover: #B1B1B1;
+    --fluent-accent-fill-pressed: #919191;
+    --fluent-neutral-fill-rest: #101419;
+    --fluent-neutral-fill-hover: #252B3D;
+    --fluent-neutral-foreground-rest: #F0F0F0;
+    --fluent-neutral-foreground-hint: #A0A0A0;
+    --fluent-layer-fill-default: #101419;
+    --fluent-stroke-color-default: #1E293B;
+    --fluent-background-fill-solid: #0A0E1A;
+    --result-bg: #101419;
+    --result-border: #1E293B;
+    --fluent-shadow-depth-4: 0 2px 4px rgba(0, 0, 0, 0.4);
+    --fluent-shadow-depth-16: 0 8px 16px rgba(0, 0, 0, 0.5);
+}
+
+/* === BLUEPRINT MODE STYLES === */
+body.blueprint-mode {
+    --fluent-accent-fill-rest: #FFFFFF;
+    --fluent-accent-fill-hover: #E0F2FF;
+    --fluent-accent-fill-pressed: #05445E;
+    --fluent-neutral-fill-rest: #112244;
+    --fluent-neutral-fill-hover: #164085;
+    --fluent-neutral-foreground-rest: #FFFFFF;
+    --fluent-neutral-foreground-hint: #BDD7EE;
+    --fluent-layer-fill-default: #112244;
+    --fluent-stroke-color-default: rgba(255, 255, 255, 0.3);
+    --fluent-background-fill-solid: #05445E;
+    --result-bg: #112244;
+    --result-border: rgba(255, 255, 255, 0.3);
+    --fluent-shadow-depth-4: 0 2px 4px rgba(0, 0, 0, 0.3);
+    --fluent-shadow-depth-16: 0 8px 16px rgba(0, 0, 0, 0.4);
+    
+    background: linear-gradient(135deg, #05445E 0%, #112244 50%, #05445E 100%) !important;
+}
+
+body.blueprint-mode .panel-title {
+    color: #FFFFFF;
+    border-bottom-color: rgba(255, 255, 255, 0.2);
+}
+
+body.blueprint-mode .input-group {
+    background-color: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.4);
+}
+
+body.blueprint-mode .input-group.readonly {
+    background-color: rgba(255, 255, 255, 0.02);
+    border-color: transparent;
+}
+
+body.blueprint-mode .input-group.readonly.shear {
+    background-color: rgba(255, 255, 255, 0.08);
+}
+
+body.blueprint-mode .canvas-control-btn,
+body.blueprint-mode .element-control-btn,
+body.blueprint-mode .notation-btn {
+    background: #0D2858 !important;
+    border-color: rgba(255, 255, 255, 0.3) !important;
+    color: #FFFFFF !important;
+}
+
+body.blueprint-mode .canvas-control-btn:hover,
+body.blueprint-mode .element-control-btn:hover,
+body.blueprint-mode .notation-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: #FFFFFF;
+}
+
+body.blueprint-mode .element-control-btn.active,
+body.blueprint-mode .notation-btn.active {
+    background: #FFFFFF !important;
+    color: #05445E !important;
+    border-color: #FFFFFF !important;
+}
+
+body.blueprint-mode .notation-btn.active .notation-label,
+body.blueprint-mode .notation-btn.active .notation-number {
+    color: #05445E !important;
+}
+
+body.blueprint-mode #left-panel,
+body.blueprint-mode #right-panel,
+body.blueprint-mode .panel-content {
+    background-color: #112244 !important;
+    border-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+body.blueprint-mode .panel-section,
+body.blueprint-mode .logo-container,
+body.blueprint-mode .page-footer {
+    border-color: rgba(255, 255, 255, 0.2) !important;
+    background-color: transparent !important;
+}
+
+body.blueprint-mode .mohr-controls-row {
+    background-color: #0D2858 !important;
+    padding: 4px;
+    border-radius: 6px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+body.blueprint-mode .angle-control-v2,
+body.blueprint-mode .toggle-control-v2 {
+    background-color: #0D2858 !important;
+    border-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+body.blueprint-mode .angle-input-box-v2,
+body.blueprint-mode .angle-input-box-mini,
+body.blueprint-mode .result-block,
+body.blueprint-mode .result-mini {
+    background-color: rgba(255, 255, 255, 0.05) !important;
+    border-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+body.blueprint-mode .canvas-control-btn {
+    background-color: #0D2858 !important;
+    color: #FFFFFF !important;
+    border-color: rgba(255, 255, 255, 0.3) !important;
+}
+
+body.blueprint-mode .layout-btn.active,
+body.blueprint-mode .language-switcher button.active {
+    background-color: #FFFFFF !important;
+    color: #05445E !important;
+    border-color: #FFFFFF !important;
+}
+
+body.blueprint-mode #stepInfo {
+    background-color: #0D2858 !important;
+    color: #FFFFFF !important;
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+}
+
+body.blueprint-mode input[type="number"], 
+body.blueprint-mode input[type="text"], 
+body.blueprint-mode select,
+body.blueprint-mode .value-readonly,
+body.blueprint-mode .value-mini,
+body.blueprint-mode .value-res {
+    color: #FFFFFF !important;
+}
+
+body.blueprint-mode .math-label,
+body.blueprint-mode .unit-input,
+body.blueprint-mode .unit,
+body.blueprint-mode .control-label-phi,
+body.blueprint-mode .toggle-label-v2,
+body.blueprint-mode .toggle-label-mini,
+body.blueprint-mode .notation-label,
+body.blueprint-mode .section-label {
+    color: #BDD7EE !important;
+}
+
+body.blueprint-mode .panel-logo,
+body.blueprint-mode .footer-logo,
+body.blueprint-mode .footer-logo-mini {
+    filter: brightness(0) invert(1) !important;
+}
+
+body.blueprint-mode .mohr-canvas-container,
+body.blueprint-mode .element-box {
+    background: #112244 !important;
+    border-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+/* Blueprint Mode Toggle Switch Fix */
+body.blueprint-mode .slider {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+body.blueprint-mode .toggle-switch input:checked + .slider {
+    background-color: #0D2858 !important; /* Dark background when checked */
+    border-color: #FFFFFF !important;
+}
+
+body.blueprint-mode .slider:before {
+    background-color: #BDD7EE; /* Light knob styles */
+}
+
+body.blueprint-mode .toggle-switch input:checked + .slider:before {
+    background-color: #FFFFFF; /* White knob when checked */
+}
+
+/* --- TEMA İKONLARI (RetainingWall Referanslı) --- */
+#dark-mode-toggle .icon-sun,
+#dark-mode-toggle .icon-moon,
+#dark-mode-toggle .icon-blueprint,
+#dark-mode-toggle-mobile .icon-sun,
+#dark-mode-toggle-mobile .icon-moon,
+#dark-mode-toggle-mobile .icon-blueprint,
+#dark-mode-toggle-left .icon-sun,
+#dark-mode-toggle-left .icon-moon,
+#dark-mode-toggle-left .icon-blueprint,
+#settings-theme-left .icon-sun,
+#settings-theme-left .icon-moon,
+#settings-theme-left .icon-blueprint {
+    display: none;
+}
+
+/* Aydınlık Mod: Güneş Göster (Varsayılan) */
+body:not(.dark-mode):not(.blueprint-mode) #dark-mode-toggle .icon-sun,
+body:not(.dark-mode):not(.blueprint-mode) #dark-mode-toggle-mobile .icon-sun,
+body:not(.dark-mode):not(.blueprint-mode) #dark-mode-toggle-left .icon-sun,
+body:not(.dark-mode):not(.blueprint-mode) #settings-theme-left .icon-sun { 
+    display: block !important; 
+}
+
+/* Karanlık Mod: Ay Göster */
+body.dark-mode:not(.blueprint-mode) #dark-mode-toggle .icon-moon,
+body.dark-mode:not(.blueprint-mode) #dark-mode-toggle-mobile .icon-moon,
+body.dark-mode:not(.blueprint-mode) #dark-mode-toggle-left .icon-moon,
+body.dark-mode:not(.blueprint-mode) #settings-theme-left .icon-moon { 
+    display: block !important; 
+}
+
+/* Ozalit (Blueprint) Modu: Pafta Göster */
+body.blueprint-mode #dark-mode-toggle,
+body.blueprint-mode #dark-mode-toggle-mobile,
+body.blueprint-mode #dark-mode-toggle-left {
+    color: #FFFFFF !important;
+}
+
+body.blueprint-mode #dark-mode-toggle .icon-blueprint,
+body.blueprint-mode #dark-mode-toggle-mobile .icon-blueprint,
+body.blueprint-mode #dark-mode-toggle-left .icon-blueprint,
+body.blueprint-mode #settings-theme-left .icon-blueprint { 
+    display: block !important;
+    color: #FFFFFF !important;
+}
+
+/* --- SOL PANEL AYARLAR MENÜSÜ --- */
+#settings-menu-toggle-left {
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    background-color: transparent;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    color: var(--fluent-neutral-foreground-hint);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.15s ease-out;
+}
+#settings-menu-toggle-left:hover {
+    background-color: var(--fluent-neutral-fill-hover);
+}
+body.blueprint-mode #settings-menu-toggle-left {
+    color: #FFFFFF !important;
+}
+
+.settings-menu-left {
+    position: absolute;
+    bottom: calc(100% + 8px);
+    left: 0;
+    background-color: var(--fluent-layer-fill-default);
+    border: 1px solid var(--fluent-stroke-color-default);
+    border-radius: 8px;
+    box-shadow: var(--fluent-shadow-depth-16);
+    padding: 6px;
+    z-index: 3000;
+    min-width: 180px;
+    display: none;
+    flex-direction: column;
+    animation: settingsMenuFade 0.2s ease;
+}
+@keyframes settingsMenuFade {
+    from { opacity: 0; transform: translateY(8px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+.settings-menu-left.show {
+    display: flex;
+}
+.settings-menu-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100% !important;
+    height: auto !important;
+    padding: 8px 12px !important;
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--fluent-neutral-foreground-hint) !important;
+    border-radius: 6px;
+    text-align: left;
+    white-space: nowrap;
+    box-sizing: border-box;
+    transition: background-color 0.2s ease, color 0.2s ease;
+    font-family: "Segoe UI Variable", "Segoe UI", sans-serif;
+}
+body.blueprint-mode .settings-menu-item {
+    color: #BDD7EE !important;
+}
+.settings-menu-item:hover {
+    background-color: var(--fluent-neutral-fill-hover);
+    color: var(--fluent-neutral-foreground-rest) !important;
+}
+body.blueprint-mode .settings-menu-item:hover {
+    background-color: rgba(255, 255, 255, 0.1) !important;
+    color: #FFFFFF !important;
+}
+.settings-menu-item svg {
+    flex-shrink: 0;
+    opacity: 0.75;
+}
+.settings-menu-item:hover svg {
+    opacity: 1;
+}
+
+/* --- ALT MENÜ (FLYOUT SUBMENU) --- */
+.settings-menu-item.has-submenu {
+    position: relative;
+}
+.settings-submenu {
+    position: absolute;
+    left: calc(100% + 6px);
+    top: 0;
+    background-color: var(--fluent-layer-fill-default);
+    border: 1px solid var(--fluent-stroke-color-default);
+    border-radius: 8px;
+    box-shadow: var(--fluent-shadow-depth-16);
+    padding: 6px;
+    z-index: 4000;
+    min-width: 155px;
+    display: none;
+    flex-direction: column;
+    animation: settingsMenuFade 0.18s ease;
+}
+.settings-menu-item.has-submenu:hover .settings-submenu {
+    display: flex;
+}
+.settings-submenu-item {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    width: 100% !important;
+    padding: 7px 11px;
+    border: none;
+    background-color: transparent !important;
+    cursor: pointer;
+    font-size: 12.5px;
+    font-weight: 500;
+    color: var(--fluent-neutral-foreground-hint);
+    border-radius: 6px;
+    text-align: left;
+    white-space: nowrap;
+    box-sizing: border-box;
+    transition: background-color 0.15s ease, color 0.15s ease;
+    font-family: "Segoe UI Variable", "Segoe UI", sans-serif;
+}
+.settings-submenu-item:hover {
+    background-color: var(--fluent-neutral-fill-hover) !important;
+    color: var(--fluent-neutral-foreground-rest) !important;
+}
+.settings-submenu-item.active {
+    color: var(--fluent-accent-fill-rest);
+    font-weight: 600;
+}
+.settings-submenu-item.active::after {
+    content: '';
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: var(--fluent-accent-fill-rest);
+    margin-left: auto;
+}
+body.blueprint-mode .settings-submenu {
+    background-color: #112244;
+    border-color: rgba(255,255,255,0.2);
+}
+body.blueprint-mode .settings-submenu-item {
+    color: #BDD7EE;
+}
+body.blueprint-mode .settings-submenu-item:hover {
+    background-color: rgba(255,255,255,0.1) !important;
+    color: #FFFFFF !important;
+}
+
+
+/* --- HAKKINDA MODALI --- */
+.ps-about-modal-backdrop {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 5000;
+    font-family: "Segoe UI Variable", "Segoe UI", sans-serif;
+}
+.ps-about-modal-backdrop.show { display: flex; }
+.ps-about-modal {
+    width: 760px;
+    max-width: calc(100% - 40px);
+    background-color: var(--fluent-layer-fill-default);
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+    overflow: hidden;
+    color: var(--fluent-neutral-foreground-rest);
+}
+.ps-about-modal-grid {
+    display: flex;
+    min-height: 340px;
+}
+.ps-about-modal-left {
+    flex: 1;
+    background: linear-gradient(135deg, var(--fluent-accent-fill-rest), #0F1E33);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 36px 28px;
+    color: #ffffff;
+    text-align: center;
+}
+body.blueprint-mode .ps-about-modal-left {
+    background: linear-gradient(135deg, #1a4a7a, #05445E);
+}
+.ps-about-modal-left-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.ps-about-modal-left img.ps-about-logo {
+    width: 140px;
+    height: auto;
+    filter: brightness(0) invert(1);
+}
+.ps-about-modal-tagline {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    opacity: 0.8;
+    margin-top: 12px;
+    text-transform: uppercase;
+}
+.ps-about-modal-version {
+    margin-top: 14px;
+    font-size: 10px;
+    opacity: 0.45;
+    font-weight: 600;
+}
+.ps-about-modal-left a.ps-about-iuc-link {
+    display: block;
+    transition: opacity 0.2s;
+    cursor: pointer;
+    opacity: 0.85;
+    margin-top: 20px;
+}
+.ps-about-modal-left a.ps-about-iuc-link:hover { opacity: 0.65; }
+.ps-about-modal-left img.ps-about-iuc-logo {
+    width: 100px;
+    height: auto;
+    filter: brightness(0) invert(1);
+}
+.ps-about-modal-right {
+    flex: 1.92;
+    padding: 36px;
+    background: var(--fluent-layer-fill-default);
+    display: flex;
+    flex-direction: column;
+}
+.ps-about-modal-right h2 {
+    font-weight: 700;
+    font-size: 22px;
+    color: var(--fluent-neutral-foreground-rest);
+    margin: 0 0 16px 0;
+    letter-spacing: -0.4px;
+}
+.ps-about-modal-body {
+    font-size: 13px;
+    color: var(--fluent-neutral-foreground-hint);
+    line-height: 1.65;
+    flex: 1;
+}
+.ps-about-modal-body p { margin: 0 0 10px 0; }
+.ps-about-modal-body a {
+    color: var(--fluent-accent-fill-rest);
+    text-decoration: none;
+    font-weight: 700;
+}
+.ps-about-modal-body a:hover { text-decoration: underline; }
+.ps-about-modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px;
+}
+.ps-about-modal-footer button {
+    padding: 9px 28px;
+    border-radius: 10px;
+    border: none;
+    background-color: var(--fluent-accent-fill-rest);
+    color: #ffffff;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: inherit;
+    transition: background-color 0.15s ease;
+}
+.ps-about-modal-footer button:hover { background-color: var(--fluent-accent-fill-hover); }
+@media (max-width: 640px) {
+    .ps-about-modal-grid { flex-direction: column; min-height: 0; }
+    .ps-about-modal-left { padding: 24px; }
+    .ps-about-modal-right { padding: 24px; }
+}
+
+/* Dark mode input ve element stilleri */
+body.dark-mode .input-group {
+    background-color: #101419;
+    border-color: #A1A1A1; /* Editable inputs have accent border */
+}
+
+/* Readonly input groups - no visible border, darker background */
+body.dark-mode .input-group.readonly {
+    background-color: #141820;
+    border-color: transparent;
+}
+
+/* Shear stress results - special purple-ish background */
+body.dark-mode .input-group.readonly.shear {
+    background-color: #1E1A2E;
+    border-color: transparent;
+}
+
+/* Transformation controls dark mode */
+body.dark-mode .angle-control-v2,
+body.dark-mode .toggle-control-v2 {
+    background: #101419;
+    border-color: #1E293B;
+}
+
+body.dark-mode .angle-input-box-v2,
+body.dark-mode .angle-input-box-mini {
+    background: #141820;
+    border-color: #A1A1A1;
+}
+
+body.dark-mode .control-label-phi,
+body.dark-mode .toggle-label-v2,
+body.dark-mode .toggle-label-mini {
+    color: #A0A0A0;
+}
+
+body.dark-mode input[type="number"],
+body.dark-mode input[type="text"] {
+    color: #F0F0F0;
+}
+
+body.dark-mode .math-label {
+    color: #A0A0A0;
+}
+
+body.dark-mode .unit-input,
+body.dark-mode .unit {
+    color: #666;
+}
+
+body.dark-mode .value-readonly {
+    color: #F0F0F0;
+}
+
+body.dark-mode .logo-container {
+    background-color: #101419;
+}
+
+/* Logo görselleri karanlık modda beyazlaştır */
+body.dark-mode img[src*="logo.svg"],
+body.dark-mode img[src*="IUC.svg"],
+body.dark-mode .panel-logo,
+body.dark-mode .footer-logo {
+    filter: brightness(0) invert(0.63);
+}
+
+/* Footer karanlık mod */
+body.dark-mode .page-footer {
+    background-color: rgba(15, 20, 25, 0.95);
+    backdrop-filter: blur(10px);
+}
+
+/* Result alanları */
+body.dark-mode .result-block {
+    background-color: #101419;
+    border-color: #1E293B;
+}
+
+body.dark-mode .result-block.transformed-block {
+    background-color: #1A2533;
+    border-color: #2B4362;
+}
+
+body.dark-mode .result-mini {
+    background-color: #252B3D;
+}
+
+body.dark-mode .value-mini,
+body.dark-mode .value-res,
+body.dark-mode .math-res,
+body.dark-mode .math-mini {
+    color: #E0E0E0;
+}
+
+/* Canvas overlay butonları karanlık mod */
+body.dark-mode .canvas-control-btn,
+body.dark-mode .element-control-btn {
+    background: rgba(26, 31, 46, 0.95);
+    border-color: #1E293B;
+    color: #A0A0A0;
+}
+
+body.dark-mode .canvas-control-btn:hover,
+body.dark-mode .element-control-btn:hover {
+    background: #252B3D;
+    color: #A1A1A1;
+    border-color: #A1A1A1;
+}
+
+body.dark-mode .element-control-btn.active {
+    background-color: #1E3A5F;
+    color: #A1A1A1;
+    border-color: #A1A1A1;
+}
+
+/* Layout butonları */
+body.dark-mode .layout-btn {
+    background: #101419;
+    border-color: #1E293B;
+    color: #A0A0A0;
+}
+
+body.dark-mode .layout-btn:hover {
+    background: #252B3D;
+    color: #F0F0F0;
+}
+
+body.dark-mode .layout-btn.active {
+    background: #A1A1A1;
+    border-color: #A1A1A1;
+    color: white;
+}
+
+/* Notation butonları */
+body.dark-mode .notation-btn {
+    background: rgba(26, 31, 46, 0.95);
+    border-color: #1E293B;
+    color: #A0A0A0;
+}
+
+body.dark-mode .notation-btn:hover {
+    background: #252B3D;
+    color: #F0F0F0;
+}
+
+body.dark-mode .notation-btn.active {
+    background: #A1A1A1;
+    border-color: #A1A1A1;
+    color: white;
+}
+
+/* Switch slider */
+body.dark-mode .slider {
+    background-color: #1E293B;
+}
+
+/* Language switcher */
+body.dark-mode .language-switcher button {
+    color: #A0A0A0;
+}
+
+body.dark-mode .language-switcher button.active {
+    background-color: #A1A1A1;
+    color: white;
+}
+
+/* Step info box */
+body.dark-mode #stepInfo {
+    background: rgba(26, 31, 46, 0.95) !important;
+    color: #F0F0F0;
+}
+
+/* Dark mode toggle icon switching */
+body.dark-mode .moon-icon { display: none !important; }
+body.dark-mode .sun-icon { display: block !important; }
+
+/* 2. GENEL SAYFA YAPISI */
+body {
+    font-family: "Segoe UI Variable", "Segoe UI", -apple-system, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--fluent-background-fill-solid);
+    height: 100vh;
+    display: flex;
+    overflow: hidden;
+    color: var(--fluent-neutral-foreground-rest);
+    user-select: none;
+}
+
+/* --- SOL PANEL (KART GÖRÜNÜMÜ) --- */
+#left-panel {
+    width: 250px;
+    margin: 15px;
+    margin-right: 0;
+    padding: 0;
+    background-color: var(--fluent-layer-fill-default);
+    border: 1px solid var(--fluent-stroke-color-default);
+    border-radius: var(--fluent-border-radius);
+    box-shadow: var(--fluent-shadow-depth-16);
+    display: flex;
+    flex-direction: column;
+    overflow: visible;
+    z-index: 2000;
+    transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.panel-content {
+    flex: 1;
+    overflow-y: auto;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+}
+
+.panel-section {
+    padding: 15px;
+    border-bottom: 1px solid var(--fluent-stroke-color-default);
+}
+
+.panel-section:last-child {
+    border-bottom: none;
+}
+
+h3 {
+    margin: 0 0 12px 0;
+    font-size: 13px;
+    color: var(--fluent-accent-fill-rest);
+    font-weight: 700;
+    text-transform: none;
+    letter-spacing: 0.5px;
+}
+
+/* --- GİRDİ ALANI TASARIMI --- */
+.input-row {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.input-group {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    border: 1px solid var(--fluent-stroke-color-default);
+    border-radius: 4px;
+    padding: 4px 8px;
+    background-color: #fff;
+    transition: border 0.2s;
+}
+
+.input-group:focus-within {
+    border-color: var(--fluent-accent-fill-rest);
+}
+
+.input-group.full-width {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.math-label {
+    font-family: 'Times New Roman', serif;
+    font-style: italic;
+    font-size: 18px;
+    margin-right: 5px;
+    color: #444;
+    width: 28px;
+    flex-shrink: 0;
+}
+
+.sub {
+    font-size: 11px;
+    vertical-align: sub;
+    font-family: sans-serif;
+    font-style: normal;
+}
+
+.unit-input {
+    font-size: 13px;
+    color: #888;
+    margin-left: 5px;
+    user-select: none;
+    flex-shrink: 0;
+}
+
+input[type="number"],
+input[type="text"] {
+    flex: 1;
+    width: 100%;
+    border: none;
+    outline: none;
+    font-family: 'Consolas', monospace;
+    font-size: 14px;
+    font-weight: 600;
+    color: #333;
+    text-align: right;
+    background: transparent;
+    padding: 0;
+    margin: 0;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    appearance: none;
+    margin: 0;
+}
+
+input[type=number] {
+    -moz-appearance: textfield;
+    appearance: textfield;
+}
+
+/* Açı Kontrolü */
+.angle-control-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+input[type=range] {
+    flex: 1;
+    cursor: pointer;
+    accent-color: var(--fluent-accent-fill-rest);
+    height: 4px;
+}
+
+.angle-input-box {
+    width: 50px;
+    display: flex;
+    align-items: center;
+    border: 1px solid var(--fluent-stroke-color-default);
+    border-radius: 4px;
+    padding: 2px 5px;
+}
+
+.angle-input-box input {
+    text-align: center;
+}
+
+.unit {
+    font-size: 12px;
+    color: #999;
+    margin-left: 2px;
+}
+
+.separator-mini {
+    margin: 10px 0;
+    border-top: 1px dashed var(--fluent-stroke-color-default);
+}
+
+/* --- SONUÇ ALANI TASARIMI --- */
+.results-container {
+    background-color: #fafafa;
+    flex: 1;
+}
+
+.result-block {
+    background-color: #fff;
+    border: 1px solid var(--result-border);
+    border-radius: 6px;
+    margin-bottom: 8px;
+    padding: 8px 12px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
+}
+
+.result-block.transformed-block {
+    border-color: #d0e2f0;
+    background-color: #f4f9fc;
+}
+
+.result-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 4px 0;
+}
+
+.result-row.highlight {
+    border-top: 1px solid #eee;
+    margin-top: 4px;
+    padding-top: 6px;
+}
+
+.math-res {
+    font-family: 'Times New Roman', serif;
+    font-style: italic;
+    font-size: 15px;
+    color: #444;
+}
+
+.value-res {
+    font-family: 'Consolas', monospace;
+    font-size: 14px;
+    font-weight: 700;
+    color: #000;
+    margin-left: auto;
+    margin-right: 5px;
+}
+
+.unit-res {
+    font-size: 11px;
+    color: #888;
+    width: 25px;
+    text-align: right;
+}
+
+.result-header-mini {
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: none;
+    color: #639bb5;
+    margin-bottom: 5px;
+}
+
+.result-grid {
+    display: flex;
+    gap: 10px;
+}
+
+.result-mini {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f3f3f3;
+    border-radius: 4px;
+    padding: 4px;
+}
+
+.math-mini {
+    font-family: 'Times New Roman', serif;
+    font-style: italic;
+    font-size: 14px;
+    margin-right: 5px;
+    color: #555;
+}
+
+.value-mini {
+    font-family: 'Consolas', monospace;
+    font-size: 13px;
+    font-weight: 600;
+    color: #333;
+}
+
+/* --- BUTON VE SWITCHLER --- */
+.settings-area button#btnReset {
+    width: 100%;
+    padding: 8px;
+    background-color: white;
+    color: var(--fluent-accent-fill-rest);
+    border: 1px solid var(--fluent-stroke-color-default);
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 15px;
+    font-size: 12px;
+    font-weight: 600;
+    transition: all 0.2s;
+}
+
+.settings-area button#btnReset:hover {
+    background-color: var(--fluent-neutral-fill-hover);
+    border-color: var(--fluent-accent-fill-rest);
+}
+
+.toggle-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.toggle-label {
+    font-size: 12px;
+    color: #444;
+}
+
+/* Switch CSS */
+.toggle-switch {
+    position: relative;
+    display: inline-block;
+    width: 36px;
+    height: 18px;
+}
+
+.toggle-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .3s;
+    border-radius: 18px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 12px;
+    width: 12px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    transition: .3s;
+    border-radius: 50%;
+}
+
+.toggle-switch input:checked+.slider {
+    background-color: var(--fluent-accent-fill-rest);
+}
+
+.toggle-switch input:checked+.slider:before {
+    transform: translateX(18px);
+}
+
+/* Segmented Control */
+.control-label {
+    display: block;
+    font-weight: 600;
+    font-size: 11px;
+    color: #666;
+    margin-bottom: 6px;
+}
+
+.segmented-control {
+    display: flex;
+    width: 100%;
+    background-color: #eee;
+    padding: 2px;
+    border-radius: 5px;
+}
+
+.segment-item {
+    flex: 1;
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+.segment-item input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.segment-item label {
+    width: 100%;
+    text-align: center;
+    font-size: 11px;
+    padding: 4px 0;
+    cursor: pointer;
+    border-radius: 4px;
+    color: #666;
+    transition: all 0.2s;
+    font-weight: 500;
+}
+
+.segment-item input:checked+label {
+    background-color: #fff;
+    color: var(--fluent-accent-fill-rest);
+    font-weight: 700;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* --- ORTA PANEL --- */
+#center-panel {
+    flex: 1;
+    margin: 15px;
+    position: relative;
+    background-color: var(--fluent-layer-fill-default);
+    border: 1px solid var(--fluent-stroke-color-default);
+    border-radius: var(--fluent-border-radius);
+    box-shadow: var(--fluent-shadow-depth-16);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+canvas#mohrCanvas {
+    display: block;
+    touch-action: none;
+}
+
+/* ===== MOHR PANELİ KONTROLLERİ - İKİ SIRA ===== */
+.mohr-all-controls {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    z-index: 10;
+}
+
+.mohr-controls-row {
+    display: flex;
+    gap: 5px;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+/* Eski canvas-controls artık kullanılmıyor ama geriye dönük uyumluluk için */
+.canvas-controls {
+    display: none;
+}
+
+.canvas-control-btn {
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    background: rgba(255, 255, 255, 0.95);
+    border: 1px solid var(--fluent-stroke-color-default);
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+    color: var(--fluent-neutral-foreground-rest);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--fluent-shadow-depth-4);
+    transition: all 0.2s;
+    user-select: none;
+}
+
+.canvas-control-btn:hover {
+    background: white;
+    color: var(--fluent-accent-fill-rest);
+    border-color: var(--fluent-accent-fill-rest);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.12);
+}
+
+.canvas-control-btn:active {
+    transform: translateY(0);
+    box-shadow: var(--fluent-shadow-depth-4);
+}
+
+.page-footer {
+    position: absolute;
+    bottom: 15px;
+    left: 15px;
+    right: 15px;
+    width: auto;
+    background-color: rgba(255, 255, 255, 0.90);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--fluent-stroke-color-default);
+    border-radius: var(--fluent-border-radius);
+    box-shadow: var(--fluent-shadow-depth-16);
+    padding: 10px 20px;
+    z-index: 100;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    gap: 20px;
+}
+
+.footer-text {
+    font-size: 13px;
+    color: var(--fluent-neutral-foreground-hint);
+}
+
+.footer-text p {
+    margin: 0 0 4px 0;
+}
+
+.footer-text a {
+    color: var(--fluent-accent-fill-rest);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.language-switcher {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.language-switcher button {
+    width: 28px;
+    height: 28px;
+    background: transparent;
+    color: #666;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.language-switcher button.active {
+    background-color: #eee;
+    color: var(--fluent-accent-fill-rest);
+}
+
+/* Eski mohr-controls artık kullanılmıyor */
+.mohr-controls {
+    display: none;
+}
+
+/* ===== ADIM ADIM ÇİZ BUTONLARI - SOL ÜST KÖŞE ===== */
+.step-draw-controls {
+    position: absolute;
+    top: 35px;
+    left: 10px;
+    display: flex;
+    gap: 5px;
+    z-index: 10;
+}
+
+.step-draw-controls .element-control-btn {
+    width: 32px;
+    height: 32px;
+}
+
+/* Stop button - sadece aktifken görünür */
+.stop-btn {
+    display: none !important;
+}
+
+.stop-btn.active {
+    display: flex !important;
+}
+
+.stop-icon {
+    color: #e74c3c;
+    font-weight: bold;
+}
+
+body.blueprint-mode .stop-icon {
+    color: #05445E !important;
+}
+
+/* Eski step-stop-container artık kullanılmıyor */
+.step-stop-container {
+    display: none;
+}
+
+
+/* --- SAĞ PANEL --- */
+#right-panel {
+    width: 400px;
+    min-width: 300px;
+    flex-shrink: 0;
+    margin: 15px;
+    margin-left: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    z-index: 10;
+}
+
+.element-box {
+    flex: 1;
+    background-color: var(--fluent-layer-fill-default);
+    border: 1px solid var(--fluent-stroke-color-default);
+    border-radius: var(--fluent-border-radius);
+    box-shadow: var(--fluent-shadow-depth-16);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.element-box canvas,
+#mohrCanvas {
+    display: block;
+}
+
+.panel-title {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--fluent-accent-fill-rest);
+    text-transform: none;
+    z-index: 2;
+}
+
+.element-canvas {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.download-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: rgba(255, 255, 255, 0.8);
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
+    padding: 4px 8px;
+    z-index: 5;
+    color: #666;
+    transition: all 0.2s;
+    font-weight: 500;
+}
+
+.download-btn:hover {
+    background: white;
+    color: var(--fluent-accent-fill-rest);
+    border-color: var(--fluent-accent-fill-rest);
+}
+
+/* Element Controls (Toggle + Download) */
+.element-controls {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    gap: 5px;
+    z-index: 10;
+}
+
+.element-control-btn {
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
+    padding: 4px 8px;
+    transition: all 0.2s;
+    color: #555;
+    font-weight: 600;
+    min-width: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.element-control-btn:hover {
+    background: white;
+    color: var(--fluent-accent-fill-rest);
+    border-color: var(--fluent-accent-fill-rest);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.element-control-btn.active {
+    background-color: #e6f2ff;
+    color: var(--fluent-accent-fill-rest);
+    border-color: var(--fluent-accent-fill-rest);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* --- LOGO STİLLERİ --- */
+.logo-container {
+    width: 100%;
+    padding: 0;
+    border-bottom: 1px solid var(--fluent-stroke-color-default);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fafafa;
+    border-top-left-radius: var(--fluent-border-radius);
+    border-top-right-radius: var(--fluent-border-radius);
+}
+
+.logo-container a {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.panel-logo {
+    width: 60%;
+    padding: 15px;
+    height: auto;
+    max-height: 60px;
+    object-fit: contain;
+    display: block;
+}
+
+/* Footer Logo (IUC.svg) */
+.footer-logo {
+    height: 35px;
+    width: auto;
+    display: block;
+    object-fit: contain;
+    transition: opacity 0.2s;
+}
+
+.footer-socials a:hover .footer-logo {
+    opacity: 0.7;
+}
+
+/* --- DÜZEN SEÇİMİ (Layout Options) --- */
+/* --- DÜZEN SEÇİMİ (Layout Options) --- */
+.layout-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 15px;
+    border-top: 1px solid var(--fluent-stroke-color-default);
+    border-bottom: 1px solid var(--fluent-stroke-color-default);
+    margin-top: auto;
+}
+
+/* Izgara düzeninde Layout Seçimi hemen Dönüşüm panelinin altında olsun/boşluk kalmasın */
+body.grid-layout .layout-section {
+    margin-top: 0;
+}
+
+.section-label {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--fluent-neutral-foreground-hint);
+    text-transform: none;
+}
+
+.layout-buttons {
+    display: flex;
+    gap: 5px;
+}
+
+.layout-btn {
+    width: 32px;
+    height: 32px;
+    padding: 4px;
+    background: var(--fluent-neutral-fill-rest);
+    border: 1px solid var(--fluent-stroke-color-default);
+    border-radius: 4px;
+    cursor: pointer;
+    color: var(--fluent-neutral-foreground-hint);
+    transition: all 0.15s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.layout-btn:hover {
+    background: var(--fluent-neutral-fill-hover);
+    color: var(--fluent-neutral-foreground-rest);
+}
+
+.layout-btn.active {
+    background: var(--fluent-accent-fill-rest);
+    border-color: var(--fluent-accent-fill-rest);
+    color: white;
+}
+
+.layout-btn.active:hover {
+    background: var(--fluent-accent-fill-hover);
+}
+
+/* --- GRID LAYOUT MODE --- */
+body.grid-layout #center-panel,
+body.grid-layout #right-panel {
+    display: none !important;
+}
+
+body.grid-layout .grid-container {
+    display: grid !important;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: 1fr 1fr;
+    gap: 15px;
+    flex: 1;
+    margin: 15px;
+}
+
+/* Top row: Mohr Circle and Stress State - each spans 3 columns */
+body.grid-layout .grid-container>.grid-panel:nth-child(1),
+body.grid-layout .grid-container>.grid-panel:nth-child(2) {
+    grid-column: span 3;
+    grid-row: 2;
+}
+
+/* Bottom row: Principal, Shear, Transformed - each spans 2 columns */
+body.grid-layout .grid-container>.grid-panel:nth-child(n+3) {
+    grid-column: span 2;
+    grid-row: 1;
+}
+
+.grid-container {
+    display: none;
+}
+
+/* Grid container children styling */
+body.grid-layout .grid-container>.grid-panel {
+    background-color: var(--fluent-layer-fill-default);
+    border: 1px solid var(--fluent-stroke-color-default);
+    border-radius: var(--fluent-border-radius);
+    box-shadow: var(--fluent-shadow-depth-16);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+}
+
+body.grid-layout .grid-container>.grid-panel canvas {
+    display: block;
+}
+
+/* Global panel title uppercase removed */
+
+body.grid-layout .grid-container>.grid-panel .panel-title {
+    position: static;
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 13px;
+    padding: 10px 15px;
+    border-bottom: none;
+    background: transparent;
+    text-align: left;
+}
+
+body.grid-layout .grid-container>.grid-panel .element-controls {
+    top: 5px;
+    right: 5px;
+}
+
+/* Grid layout için yeni iki sıralı buton düzeni */
+body.grid-layout .grid-container>.grid-panel .mohr-all-controls {
+    top: 5px;
+    right: 5px;
+}
+
+/* Grid layout için Adım Adım Çiz butonları */
+body.grid-layout .grid-container>.grid-panel .step-draw-controls {
+    position: static;
+    padding: 0 15px 10px 15px;
+}
+
+.animating-layout {
+    transition: transform 0.5s cubic-bezier(0.4, 0.0, 0.2, 1);
+    transform-origin: top left;
+    z-index: 1000;
+    pointer-events: none;
+    /* Prevent interaction during animation */
+}
+
+#mohr-content-wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+/* --- NOTASYON SİSTEMİ STİLLERİ --- */
+.notation-select {
+    width: 100%;
+    padding: 8px 10px;
+    font-size: 12px;
+    font-weight: 500;
+    border: 1px solid var(--fluent-stroke-color-default);
+    border-radius: 4px;
+    background-color: white;
+    color: var(--fluent-neutral-foreground-rest);
+    cursor: pointer;
+    transition: all 0.2s;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23666' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    padding-right: 30px;
+}
+
+.notation-select:hover {
+    border-color: var(--fluent-accent-fill-rest);
+}
+
+.notation-select:focus {
+    outline: none;
+    border-color: var(--fluent-accent-fill-rest);
+    box-shadow: 0 0 0 2px rgba(28, 62, 104, 0.1);
+}
+
+.notation-description {
+    margin-top: 8px;
+}
+
+.notation-info {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 10px;
+    background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    font-size: 11px;
+    color: #475569;
+    line-height: 1.4;
+}
+
+.notation-badge {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    font-family: 'Times New Roman', serif;
+    font-style: italic;
+    font-size: 14px;
+    font-weight: bold;
+    color: white;
+    flex-shrink: 0;
+}
+
+.notation-badge.structural {
+    background: linear-gradient(135deg, #1C3E68 0%, #2A528A 100%);
+}
+
+.notation-badge.mathematical {
+    background: linear-gradient(135deg, #7c3aed 0%, #8b5cf6 100%);
+}
+
+.notation-badge.geotechnical {
+    background: linear-gradient(135deg, #059669 0%, #10b981 100%);
+}
+
+/* Notasyon açıklama panelindeki metin */
+.notation-info span:not(.notation-badge) {
+    flex: 1;
+}
+
+/* --- MOHR PANELİ NOTASYON KONTROLLERI --- */
+/* Eski notation-controls artık kullanılmıyor */
+.notation-controls {
+    display: none;
+}
+
+.notation-buttons {
+    display: none;
+}
+
+.notation-btn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    background: rgba(255, 255, 255, 0.95);
+    border: 1px solid var(--fluent-stroke-color-default);
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+}
+
+.notation-btn:hover {
+    border-color: var(--fluent-accent-fill-rest);
+    background: white;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.12);
+}
+
+.notation-btn.active {
+    background: linear-gradient(135deg, #1C3E68 0%, #2A528A 100%);
+    border-color: var(--fluent-accent-fill-rest);
+    box-shadow: 0 3px 8px rgba(28, 62, 104, 0.3);
+}
+
+.notation-btn.active .notation-badge {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+}
+
+.notation-btn.active .notation-label,
+.notation-btn.active .notation-number {
+    color: white;
+}
+
+.notation-btn .notation-number {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--fluent-neutral-foreground-rest);
+}
+
+.notation-btn .notation-badge {
+    width: 22px;
+    height: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-family: 'Times New Roman', serif;
+    font-style: italic;
+    font-size: 13px;
+    font-weight: bold;
+    flex-shrink: 0;
+}
+
+.notation-btn .notation-badge.structural {
+    background: linear-gradient(135deg, #1C3E68 0%, #2A528A 100%);
+    color: white;
+}
+
+.notation-btn .notation-badge.mathematical {
+    background: linear-gradient(135deg, #7c3aed 0%, #8b5cf6 100%);
+    color: white;
+}
+
+.notation-btn.active .notation-badge.structural,
+.notation-btn.active .notation-badge.mathematical {
+    background: rgba(255, 255, 255, 0.25);
+}
+
+.notation-label {
+    font-size: 11px;
+    font-weight: 400;
+    color: var(--fluent-neutral-foreground-rest);
+}
+
+/* --- KOMPAKT LAYOUT STİLLERİ --- */
+
+/* 2 Sütunlu Giriş Satırları */
+.input-row.two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px;
+    margin-bottom: 6px;
+}
+
+.input-row.two-col .input-group {
+    padding: 4px 6px;
+}
+
+.input-row.two-col .math-label {
+    font-size: 16px;
+    width: 26px;
+    margin-right: 3px;
+}
+
+.input-row.two-col input[type="number"] {
+    font-size: 13px;
+}
+
+.input-row.two-col .unit-input {
+    font-size: 11px;
+    margin-left: 2px;
+}
+
+.input-row.two-col .value-readonly {
+    font-size: 13px;
+}
+
+/* Salt Okunur Değer Gösterimi */
+.input-group.readonly {
+    background-color: #fafafa;
+    border-color: #e8e8e8;
+}
+
+.value-readonly {
+    flex: 1;
+    font-family: 'Consolas', monospace;
+    font-size: 14px;
+    font-weight: 600;
+    color: #333;
+    text-align: right;
+}
+
+/* Kayma Gerilmesi Vurgulaması - Artık diğerleriyle aynı */
+.result-mini.highlight-shear {
+    background: #f3f3f3;
+    border: 1px solid #e8e8e8;
+}
+
+/* Input Group için Kayma Gerilmesi - Diğerleriyle aynı */
+.input-group.readonly.shear {
+    background-color: #fafafa;
+    border-color: #e8e8e8;
+}
+
+/* Dönüşüm Kontrolü Kompakt Düzeni */
+.transform-control-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.angle-control-compact {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.control-label-inline {
+    font-family: 'Times New Roman', serif;
+    font-style: italic;
+    font-size: 14px;
+    color: #555;
+    font-weight: 600;
+}
+
+.angle-control-compact input[type="range"] {
+    flex: 1;
+    min-width: 60px;
+    height: 4px;
+    cursor: pointer;
+    accent-color: var(--fluent-accent-fill-rest);
+}
+
+.angle-input-box-mini {
+    display: flex;
+    align-items: center;
+    border: 1px solid var(--fluent-stroke-color-default);
+    border-radius: 4px;
+    padding: 2px 4px;
+    background: white;
+}
+
+.angle-input-box-mini input {
+    width: 35px;
+    text-align: center;
+    font-size: 11px;
+}
+
+.toggle-compact {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 4px 8px;
+    background: #f8f8f8;
+    border-radius: 4px;
+    border: 1px solid #e0e0e0;
+}
+
+.toggle-label-mini {
+    font-size: 11px;
+    color: #555;
+    font-weight: 500;
+}
+
+/* Mini Toggle Switch */
+.toggle-switch-mini {
+    position: relative;
+    display: inline-block;
+    width: 28px;
+    height: 14px;
+}
+
+.toggle-switch-mini input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider-mini {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .3s;
+    border-radius: 14px;
+}
+
+.slider-mini:before {
+    position: absolute;
+    content: "";
+    height: 10px;
+    width: 10px;
+    left: 2px;
+    bottom: 2px;
+    background-color: white;
+    transition: .3s;
+    border-radius: 50%;
+}
+
+.toggle-switch-mini input:checked+.slider-mini {
+    background-color: var(--fluent-accent-fill-rest);
+}
+
+.toggle-switch-mini input:checked+.slider-mini:before {
+    transform: translateX(14px);
+}
+
+/* --- DÖNÜŞÜM KONTROL V2 STİLLERİ (2 Satırlı) --- */
+
+.transform-control-row-v2 {
+    display: flex;
+    gap: 8px;
+    align-items: stretch;
+}
+
+/* Açı Kontrolü - Sol taraf, 2 satır */
+.angle-control-v2 {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 6px 8px;
+    background: #f8f9fa;
+    border: 1px solid var(--fluent-stroke-color-default);
+    border-radius: 6px;
+}
+
+.angle-top-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+}
+
+.control-label-phi {
+    font-family: 'Times New Roman', serif;
+    font-style: italic;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--fluent-accent-fill-rest);
+}
+
+.angle-input-box-v2 {
+    display: flex;
+    align-items: center;
+    border: 1px solid var(--fluent-stroke-color-default);
+    border-radius: 4px;
+    padding: 3px 6px;
+    background: white;
+}
+
+.angle-input-box-v2 input {
+    width: 45px;
+    text-align: center;
+    font-size: 13px;
+    font-family: 'Consolas', monospace;
+    font-weight: 600;
+    border: none;
+    outline: none;
+    background: transparent;
+}
+
+.angle-input-box-v2 .unit {
+    font-size: 12px;
+    color: #666;
+    margin-left: 2px;
+}
+
+.angle-slider-row {
+    display: flex;
+    align-items: center;
+}
+
+.angle-slider-row input[type="range"] {
+    width: 100%;
+    height: 4px;
+    cursor: pointer;
+    accent-color: var(--fluent-accent-fill-rest);
+}
+
+/* Toggle Kontrolü - Sağ taraf, 2 satır */
+.toggle-control-v2 {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 6px 10px;
+    background: #f8f9fa;
+    border: 1px solid var(--fluent-stroke-color-default);
+    border-radius: 6px;
+    min-width: 70px;
+    align-items: center;
+}
+
+.toggle-label-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.toggle-label-v2 {
+    font-size: 10px;
+    font-weight: 600;
+    color: #555;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.toggle-button-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* --- KOMPAKT LAYOUT MODE --- */
+body.compact-layout #center-panel,
+body.compact-layout #right-panel {
+    display: none !important;
+}
+
+/* Kompakt düzende body grid container olur - 30 sütunlu grid (Hassas boyutlandırma için) */
+body.compact-layout {
+    display: grid !important;
+    grid-template-columns: repeat(30, minmax(0, 1fr));
+    grid-template-rows: 1fr 1fr;
+    gap: 15px;
+    padding: 15px;
+    height: 100vh;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+/* Kompakt düzende sol panel - Ek dil seçenekleri butonları için genişletildi */
+body.compact-layout #left-panel {
+    position: absolute;
+    width: 240px;
+    min-width: 0;
+    max-width: none;
+    height: auto;
+    bottom: 15px;
+    left: 15px;
+    margin: 0;
+    z-index: 2000;
+    box-shadow: var(--fluent-shadow-depth-16);
+    grid-column: auto;
+    grid-row: auto;
+    overflow: visible;
+}
+
+/* Compact container display: contents ile düzleşiyor */
+body.compact-layout .compact-container {
+    display: contents !important;
+}
+
+body.compact-layout .mohr-compact-panel {
+    grid-column: 1 / 16 !important;
+    grid-row: 2 !important;
+}
+
+body.compact-layout .stress-compact-panel {
+    grid-column: 16 / 31 !important;
+    grid-row: 2 !important;
+}
+
+/* Bottom row: Her panel 10 sütun = 1/3 sayfa genişliği */
+body.compact-layout .principal-compact-panel {
+    grid-column: 1 / 11 !important;
+    grid-row: 1 !important;
+}
+
+body.compact-layout .shear-compact-panel {
+    grid-column: 11 / 21 !important;
+    grid-row: 1 !important;
+}
+
+body.compact-layout .transformed-compact-panel {
+    grid-column: 21 / 31 !important;
+    grid-row: 1 !important;
+}
+
+/* Alt satır panellerinin çizimlerini %5 sağa kaydır */
+body.compact-layout .principal-compact-panel canvas,
+body.compact-layout .shear-compact-panel canvas,
+body.compact-layout .transformed-compact-panel canvas {
+    margin-left: 5%;
+    width: calc(100% - 5%);
+}
+
+.compact-container {
+    display: none;
+}
+
+/* Sol panel içerik gizleme - Kompakt düzende */
+body.compact-layout #left-panel .panel-section {
+    display: none;
+}
+
+body.compact-layout #left-panel .layout-section {
+    display: none;
+}
+
+/* Kompakt düzende footer gizlenir (kullanıcı talebi) */
+body.compact-layout #left-panel .left-panel-footer {
+    display: none;
+}
+
+body.compact-layout #left-panel .left-panel-footer .footer-text-mini {
+    display: block;
+}
+
+body.compact-layout #left-panel .left-panel-footer .footer-text-mini p {
+    font-size: 11px;
+    margin: 0 0 4px 0;
+    text-align: center;
+}
+
+body.compact-layout #left-panel .left-panel-footer .language-switcher {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+body.compact-layout #left-panel .left-panel-footer .language-switcher button {
+    width: 28px;
+    height: 24px;
+    font-size: 11px;
+    padding: 0;
+}
+
+body.compact-layout #left-panel .left-panel-footer .language-switcher #btnMoreLanguages {
+    font-size: 16px;
+}
+
+body.compact-layout #left-panel .left-panel-footer .footer-logo-mini {
+    display: block;
+    height: 28px;
+    width: auto;
+    margin: 0 auto;
+}
+
+body.compact-layout #left-panel .logo-container .panel-logo {
+    transform: none;
+    margin: 0;
+    width: 60%;
+    padding: 6px;
+    max-height: 30px;
+}
+
+/* Compact panel stilleri - display: contents nedeniyle doğrudan seçici */
+body.compact-layout .compact-panel {
+    background-color: var(--fluent-layer-fill-default);
+    border: 1px solid var(--fluent-stroke-color-default);
+    border-radius: var(--fluent-border-radius);
+    box-shadow: var(--fluent-shadow-depth-16);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+}
+
+body.compact-layout .compact-panel canvas {
+    display: block;
+    flex: 1;
+}
+
+body.compact-layout .compact-panel .panel-title {
+    position: static;
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 13px;
+    padding: 10px 15px;
+    border-bottom: none;
+    background: transparent;
+    text-align: left;
+}
+
+/* Kompakt Panel içine alınan Kontrol Panelleri - Sol üst köşede overlay */
+body.compact-layout .compact-panel .inline-controls {
+    position: absolute;
+    top: 35px;
+    left: 15px;
+    z-index: 10;
+    padding: 6px 15px;
+    background: rgba(255, 255, 255, 0.92);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 6px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    align-items: center;
+    width: fit-content;
+}
+
+body.compact-layout .compact-panel .inline-controls .input-group {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    width: 100%;
+}
+
+body.compact-layout .compact-panel .inline-controls .math-label {
+    font-size: 18px;
+    width: auto;
+    min-width: 28px;
+    flex-shrink: 0;
+}
+
+body.compact-layout .compact-panel .inline-controls input[type="number"] {
+    font-size: 14px;
+    width: 37px;
+    padding: 2px 4px;
+}
+
+body.compact-layout .compact-panel .inline-controls .unit-input {
+    font-size: 13px;
+    width: auto;
+    min-width: 28px;
+    flex-shrink: 0;
+}
+
+body.compact-layout .compact-panel .inline-controls .value-readonly {
+    font-size: 14px;
+    width: 37px;
+    text-align: right;
+    padding: 2px 4px;
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 3px;
+}
+
+/* Dönüşüm paneli özel stiller */
+body.compact-layout .compact-panel .inline-controls .compact-separator {
+    width: 100%;
+    height: 1px;
+    background: rgba(0, 0, 0, 0.1);
+    margin: 2px 0;
+}
+
+body.compact-layout .compact-panel .inline-controls .compact-slider-row {
+    width: 100%;
+}
+
+body.compact-layout .compact-panel .inline-controls .compact-slider-row input[type="range"] {
+    width: 100%;
+    height: 4px;
+}
+
+body.compact-layout .compact-panel .inline-controls .compact-toggle-row {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    width: 100%;
+}
+
+body.compact-layout .compact-panel .inline-controls .toggle-label-compact {
+    font-size: 13px;
+    color: #555;
+}
+
+body.compact-layout .compact-panel .inline-controls .transform-inline input[type="range"] {
+    width: 60px;
+}
+
+body.compact-layout .compact-panel .inline-controls .transform-inline .control-label-phi {
+    font-size: 12px;
+}
+
+body.compact-layout .compact-panel .inline-controls .transform-inline .unit {
+    font-size: 10px;
+    margin-right: 4px;
+}
+
+/* Kontrol butonlarının konumu */
+body.compact-layout .compact-panel .element-controls {
+    top: 5px;
+    right: 5px;
+}
+
+/* --- DARK MODE FOR COMPACT LAYOUT CONTROLS --- */
+body.dark-mode.compact-layout .compact-panel .inline-controls {
+    background: rgba(26, 31, 46, 0.95);
+    border-color: #1E293B;
+    color: #A0A0A0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+body.dark-mode.compact-layout .compact-panel .inline-controls .value-readonly {
+    background: rgba(0, 0, 0, 0.2);
+    color: #F0F0F0;
+}
+
+body.dark-mode.compact-layout .compact-panel .inline-controls .compact-separator {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode.compact-layout .compact-panel .inline-controls .toggle-label-compact,
+body.dark-mode.compact-layout .compact-panel .inline-controls .control-label-inline,
+body.dark-mode.compact-layout .compact-panel .inline-controls .unit,
+body.dark-mode.compact-layout .compact-panel .inline-controls .math-label {
+    color: #A0A0A0;
+}
+
+body.dark-mode.compact-layout .compact-panel .inline-controls .unit-input {
+    color: #888;
+}
+
+body.dark-mode.compact-layout .compact-panel .inline-controls input[type="number"] {
+    color: #F0F0F0;
+}
+
+/* Fix angle input box background in compact mode */
+body.dark-mode .angle-input-box-mini {
+    background: #141820;
+    border-color: #A1A1A1;
+}
+
+body.dark-mode .angle-input-box-mini input {
+    color: #F0F0F0;
+}
+
+/* Compact layout için yeni iki sıralı buton düzeni */
+body.compact-layout .compact-panel .mohr-all-controls {
+    top: 5px;
+    right: 5px;
+}
+
+/* --- LEFT PANEL FOOTER --- */
+.left-panel-footer {
+    display: flex;
+    margin-top: auto;
+    padding-top: 15px;
+    border-top: 1px solid var(--fluent-stroke-color-default);
+    flex-direction: column;
+    gap: 15px;
+    padding-bottom: 15px;
+    align-items: center;
+    text-align: center;
+}
+
+/* Hide original page footer globally */
+.page-footer {
+    display: none !important;
+}
+
+body.grid-layout .page-footer {
+    display: none;
+}
+
+.footer-text-mini p {
+    margin: 0 0 4px 0;
+    font-size: 11px;
+    color: var(--fluent-neutral-foreground-hint);
+    line-height: 1.4;
+}
+
+.footer-text-mini a {
+    color: var(--fluent-accent-fill-rest);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.footer-logo-mini {
+    height: 30px;
+    width: auto;
+    opacity: 0.8;
+    transition: opacity 0.2s;
+
+
+    body.compact-layout .compact-container>.compact-panel {
+        background-color: var(--fluent-layer-fill-default);
+        border: 1px solid var(--fluent-stroke-color-default);
+        border-radius: var(--fluent-border-radius);
+        box-shadow: var(--fluent-shadow-depth-16);
+        position: relative;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        min-height: 0;
+    }
+
+    body.compact-layout .compact-container>.compact-panel canvas {
+        display: block;
+        flex: 1;
+    }
+
+    body.compact-layout .compact-container>.compact-panel .panel-title {
+        position: static;
+        width: 100%;
+        box-sizing: border-box;
+        font-size: 13px;
+        padding: 10px 15px;
+        border-bottom: none;
+        background: transparent;
+        text-align: left;
+    }
+
+    /* Kompakt Panel içine alınan Kontrol Panelleri - Sol üst köşede overlay */
+    body.compact-layout .compact-panel .inline-controls {
+        position: absolute;
+        top: 35px;
+        left: 15px;
+        z-index: 10;
+        padding: 6px 15px;
+        background: rgba(255, 255, 255, 0.92);
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        border-radius: 6px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+        display: flex;
+        flex-direction: column;
+        gap: 3px;
+        align-items: center;
+        width: fit-content;
+    }
+
+    body.compact-layout .compact-panel .inline-controls .input-group {
+        display: flex;
+        align-items: center;
+        gap: 2px;
+        width: 100%;
+    }
+
+    body.compact-layout .compact-panel .inline-controls .math-label {
+        font-size: 18px;
+        width: auto;
+        min-width: 28px;
+        flex-shrink: 0;
+    }
+
+    body.compact-layout .compact-panel .inline-controls input[type="number"] {
+        font-size: 14px;
+        width: 50px;
+        padding: 2px 4px;
+    }
+
+    body.compact-layout .compact-panel .inline-controls .unit-input {
+        font-size: 13px;
+        width: auto;
+        min-width: 28px;
+        flex-shrink: 0;
+    }
+
+    body.compact-layout .compact-panel .inline-controls .value-readonly {
+        font-size: 14px;
+        width: 50px;
+        text-align: right;
+        padding: 2px 4px;
+        background: rgba(255, 255, 255, 0.7);
+        border-radius: 3px;
+    }
+
+    /* Dönüşüm paneli özel stiller */
+    body.compact-layout .compact-panel .inline-controls .compact-separator {
+        width: 100%;
+        height: 1px;
+        background: rgba(0, 0, 0, 0.1);
+        margin: 2px 0;
+    }
+
+    body.compact-layout .compact-panel .inline-controls .compact-slider-row {
+        width: 100%;
+    }
+
+    body.compact-layout .compact-panel .inline-controls .compact-slider-row input[type="range"] {
+        width: 100%;
+        height: 4px;
+    }
+
+    body.compact-layout .compact-panel .inline-controls .compact-toggle-row {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        width: 100%;
+    }
+
+    body.compact-layout .compact-panel .inline-controls .toggle-label-compact {
+        font-size: 13px;
+        color: #555;
+    }
+
+    body.compact-layout .compact-panel .inline-controls .transform-inline input[type="range"] {
+        width: 60px;
+    }
+
+    body.compact-layout .compact-panel .inline-controls .transform-inline .control-label-phi {
+        font-size: 12px;
+    }
+
+    body.compact-layout .compact-panel .inline-controls .transform-inline .unit {
+        font-size: 10px;
+        margin-right: 4px;
+    }
+
+    /* Kontrol butonlarının konumu */
+    body.compact-layout .compact-panel .element-controls {
+        top: 5px;
+        right: 5px;
+    }
+
+    /* Compact layout için yeni iki sıralı buton düzeni */
+    body.compact-layout .compact-panel .mohr-all-controls {
+        top: 5px;
+        right: 5px;
+    }
+
+
+
+    /* --- FULLSCREEN --- */
+    :fullscreen,
+    ::backdrop {
+        background-color: white;
+    }
+
+    :-webkit-full-screen {
+        background-color: white;
+    }
+
+    :-moz-full-screen {
+        background-color: white;
+    }
+
+    :-ms-fullscreen {
+        background-color: white;
+    }
+}
+/* Dil Se�imi Dropdown */
+.language-dropdown {
+    position: absolute;
+    bottom: 35px; /* Butonlar�n �st�nde a��ls�n */
+    left: 0;
+    background-color: white;
+    border: 1px solid var(--fluent-stroke-color-default);
+    border-radius: 4px;
+    box-shadow: var(--fluent-shadow-depth-16);
+    padding: 5px;
+    z-index: 3000;
+    max-height: 200px;
+    overflow-y: auto;
+    width: 150px;
+    display: none; /* Varsay�lan gizli */
+}
+
+.language-dropdown.show {
+    display: block !important;
+}
+
+.language-dropdown button {
+    display: block;
+    width: 100%;
+    text-align: left;
+    padding: 8px 10px;
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-size: 12px;
+    color: #333;
+    border-radius: 2px;
+}
+
+.language-dropdown button:hover {
+    background-color: #f3f3f3; /* var(--fluent-neutral-fill-hover) yerine hardcoded */
+    color: #438ef7; /* Blue hover text */
+}
+
+/* Dark Mode Language Dropdown */
+body.dark-mode .language-dropdown {
+    background-color: #101419;
+    border-color: #1E293B;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+body.dark-mode .language-dropdown button {
+    color: #A0A0A0;
+}
+
+body.dark-mode .language-dropdown button:hover {
+    background-color: #252B3D;
+    color: #A1A1A1;
+}
+
+/* Scrollbar Dark Mode for Language Dropdown */
+body.dark-mode .language-dropdown::-webkit-scrollbar {
+    width: 8px;
+}
+
+body.dark-mode .language-dropdown::-webkit-scrollbar-track {
+    background: #101419;
+}
+
+body.dark-mode .language-dropdown::-webkit-scrollbar-thumb {
+    background-color: #A1A1A1;
+    border-radius: 4px;
+    border: 2px solid #101419;
+}
+
+body.dark-mode .language-dropdown::-webkit-scrollbar-thumb:hover {
+    background-color: #60A5FA;
+}
+
+
+/* + Butonu iin byk font ayar */
+#btnMoreLanguages {
+    font-size: 16px; /* Standart 11px'ten daha byk */
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 2px; /* Dikey ortalama ayar� */
+}
+
