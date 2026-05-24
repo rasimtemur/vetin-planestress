@@ -253,7 +253,7 @@ Full license terms are available in the [LICENSE](LICENSE) file.
 
 **Assoc. Prof. Rasim Temür**  
 Department of Civil Engineering  
-Istanbul University-Cerrahpaşa  
+İstanbul University-Cerrahpaşa  
 🌐 [rasimtemur.com](https://www.rasimtemur.com)
 
 ---
@@ -268,5 +268,5 @@ Vetin is a collection of open-source, browser-based computational tools develope
   <i>Developed in support of engineering education.</i><br>
   <a href="https://github.com/rasimtemur/vetin-planestress">GitHub</a> ·
   <a href="https://opensource.org/licenses/MIT">MIT License</a> ·
-  <a href="https://www.iuc.edu.tr">Istanbul University-Cerrahpaşa</a>
+  <a href="https://www.iuc.edu.tr">İstanbul University-Cerrahpaşa</a>
 </p>
