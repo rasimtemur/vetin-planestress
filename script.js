@@ -3443,7 +3443,7 @@ window.addEventListener('storage', (e) => {
 // initializeTheme() moved to earlier position
 
 function showAboutModal() {
-    const lang = document.documentElement.lang || 'en';
+    const lang = (typeof currentLanguage !== 'undefined' && currentLanguage) || document.documentElement.lang || 'en';
     const t = (typeof translations !== 'undefined' && translations[lang]) || (typeof translations !== 'undefined' && translations['en']) || {};
     const title = t.aboutTitle || 'About Vetin';
     const content = t.aboutContent || 'Vetin is an educational software developed for calculating plane stress. Released under the MIT License.';
